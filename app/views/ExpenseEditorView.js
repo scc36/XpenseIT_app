@@ -65,12 +65,12 @@
 	
 	items: [{
 		xtype: 'textfield',
-		name: 'title',
-		label: 'Title',
+		name: 'amount',
+		label: 'Amount',
 		required: true
 	}, {
 		xtype: 'textareafield',
-		name: 'narrative',
-		label: 'Narrative'
+		name: 'description',
+		label: 'Details'
 	}]
 });

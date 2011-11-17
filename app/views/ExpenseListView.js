@@ -22,8 +22,8 @@
             grouped: true,
             emptyText: '<div style="margin:5px;">No expense cached.</div>',
             onItemDisclosure: true,
-            itemTpl: '<div class="list-item-title">{title}</div>' +
-                            '<div class="list-item-narrative">{narrative}</div>'
+            itemTpl: '<div class="list-item-title">{amount}</div>' +
+                            '<div class="list-item-narrative">{description}</div>'
         });
         this.expenseList.on('disclose', function (record, index, evt) {
             this.onEditExpense(record, index);

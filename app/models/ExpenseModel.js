@@ -3,12 +3,12 @@
     fields: [
         { name: 'id', type: 'int' },
         { name: 'date', type: 'date', dateFormat: 'c' },
-        { name: 'title', type: 'string' },
-        { name: 'narrative', type: 'string' }
+        { name: 'amount', type: 'int' },
+        { name: 'description', type: 'string' }
     ],
-	belongsTo : 'CategoryModel',
+	belongsTo: 'CategoryModel',
     validations: [
         { type: 'presence', field: 'id' },
-        { type: 'presence', field: 'title', message: 'Please enter a title for this note.' }
+        { type: 'presence', field: 'among', message: 'Please enter an amount.' }
     ]
 });

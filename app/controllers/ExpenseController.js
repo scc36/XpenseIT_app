@@ -10,7 +10,7 @@
 	'newexpense': function (options) {
 		var now = new Date();
 		var expenseId = now.getTime();
-		var expense = Ext.ModelMgr.create({ id: expenseId, date: now, title: '', narrative: '' },
+		var expense = Ext.ModelMgr.create({ id: expenseId, date: now, amount: '', description: '' },
 			'ExpenseModel'
 		);
 		
