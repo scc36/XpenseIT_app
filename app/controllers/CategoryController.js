@@ -10,7 +10,7 @@
 	'newcategory': function (options) {
 		var now = new Date();
 		var categoryId = now.getTime();
-		var category = Ext.ModelMgr.create({ id: categoryId, date: now, title: '', narrative: '' },
+		var category = Ext.ModelMgr.create({ id: categoryId, date: now, title: '', descriptiong: '' },
 			'CategoryModel'
 		);
 		

@@ -4,7 +4,7 @@
         { name: 'id', type: 'int' },
         { name: 'date', type: 'date', dateFormat: 'c' },
         { name: 'title', type: 'string' },
-        { name: 'narrative', type: 'string' }
+        { name: 'description', type: 'string' }
     ],
 	hasMany: 'ExpenseModel',
     validations: [

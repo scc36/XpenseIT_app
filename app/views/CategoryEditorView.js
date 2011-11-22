@@ -70,7 +70,7 @@
 		required: true
 	}, {
 		xtype: 'textareafield',
-		name: 'narrative',
-		label: 'Narrative'
+		name: 'description',
+		label: 'Description'
 	}]
 });

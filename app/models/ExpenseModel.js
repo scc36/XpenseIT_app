@@ -4,6 +4,7 @@
         { name: 'id', type: 'int' },
         { name: 'date', type: 'date', dateFormat: 'c' },
         { name: 'amount', type: 'int' },
+		{ name: 'category', type: 'string' },
         { name: 'description', type: 'string' }
     ],
 	belongsTo: 'CategoryModel',

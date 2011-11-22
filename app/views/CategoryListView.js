@@ -23,7 +23,7 @@
             emptyText: '<div style="margin:5px;">No category cached.</div>',
             onItemDisclosure: true,
             itemTpl: '<div class="list-item-title">{title}</div>' +
-                            '<div class="list-item-narrative">{narrative}</div>'
+                            '<div class="list-item-narrative">{description}</div>'
         });
         this.categoryList.on('disclose', function (record, index, evt) {
             this.onEditCategory(record, index);

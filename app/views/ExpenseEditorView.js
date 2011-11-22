@@ -1,5 +1,7 @@
 ﻿App.views.ExpenseEditorView = Ext.extend(Ext.form.FormPanel, {
 	initComponent: function () {
+		categoryStore: Ext.emptyFn,
+	
 		this.backButton = new Ext.Button({
 			text: 'Home',
 			ui: 'back',
@@ -62,15 +64,61 @@
 			action: 'deleteexpense'
 		});
 	},
-	
+	scroll: 'vertical',
 	items: [{
-		xtype: 'textfield',
-		name: 'amount',
-		label: 'Amount',
-		required: true
+		xtype: 'fieldset',
+		title: 'Enter expense information',
+		defaults: {
+			// labelAlign: 'right'
+			labelWidth: '35%'
+		},
+		items: [{
+			xtype: 'textfield',
+			name: 'amount',
+			label: 'Amount',
+			placeHolder: '0',
+			required: true,
+			useClearIcon: true
+		}, {
+			xtype: 'datepickerfield',
+			name: 'date',
+			label: 'Date',
+			picker: { yearFrom: 1900 }
+		}, {
+			xtype: 'selectfield',
+			name: 'category',
+			label: 'Category',
+			options: [{
+				text: 'Food',
+				value: 'food'
+			}, {
+				text: 'Travel',
+				value: 'travel'
+			}, {
+				text: 'Lodging',
+				value: 'lodging'
+			}, {
+				text: 'Other',
+				value: 'other'
+			}]
+		}, {
+			xtype: 'hiddenfield',
+			name: 'secret',
+			value: false
+		}, {
+			xtype: 'textareafield',
+			name: 'description',
+			label: 'Description',
+			placeHolder: 'Enter a description of your expense here'
+		}]
 	}, {
-		xtype: 'textareafield',
-		name: 'description',
-		label: 'Details'
+		layout: 'vbox',
+		defaults: {xtype: 'button', flex: 1, style: 'margin: .5em;'},
+		items: [{
+			text: 'Reset form',
+			handler: function(){
+				Ext.getCmp('basicform').reset();
+			}
+		}]
 	}]
 });
