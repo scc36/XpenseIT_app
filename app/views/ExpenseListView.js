@@ -3,6 +3,12 @@
     expenseList: Ext.emptyFn,
     layout: 'fit',
     initComponent: function () {
+		this.backButton = new Ext.Button({
+			text: 'Home',
+			ui: 'back',
+			handler: this.backButtonTap,
+		scope: this
+		});
         this.newButton = new Ext.Button({
             text: 'New',
             ui: 'action',
@@ -31,6 +37,12 @@
         this.items = [this.expenseList];
         App.views.ExpenseListView.superclass.initComponent.call(this);
     },
+	backButtonTap: function () {
+		Ext.dispatch({
+			controller: App.controllers.expenseController,
+			action: 'gohome'
+		});
+	},
     onNewExpense: function () {
         Ext.dispatch({
             controller: App.controllers.expenseController,

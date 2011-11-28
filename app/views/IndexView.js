@@ -1,27 +1,82 @@
+var menuHandler = function (btn, evt) {
+	switch (btn.name) {
+	case 'takepicture':
+		alert("Take a picture");
+		break;
+	case 'expense':
+		Ext.dispatch({
+			controller: App.controllers.expenseController,
+			action: 'newexpense'
+		});
+		break;
+	case 'viewreport':
+		Ext.dispatch({
+			controller: App.controllers.expenseController,
+			action: 'index'
+		});
+		break;
+	case 'listreport':
+		alert("Take a picture");
+		break;
+	// Bottom toolbar buttons
+	case '':
+		break;
+	case '':
+		break;
+	}
+}
+
 App.views.IndexView = Ext.extend(Ext.Panel, {
-	layout: 'fit',
+	layout: 'vbox',
 	initComponent: function () {
 		this.topToolbar = new Ext.Toolbar({
             title: 'XpenseIT',
+			dock: 'top',
         });
-		this.dockedItems = [this.topToolbar];
+		this.bottomToolbar = new Ext.Toolbar({
+			dock: 'bottom',
+			layout: {
+				pack: 'center',
+			},
+			items: [{
+				xtype: 'button',
+				iconCls: 'bookmarks',
+				title: 'Preferences',
+				handler: menuHandler,
+			}, {
+				xtype: 'button',
+				iconCls: 'download',
+				title: 'Download',
+				handler: menuHandler,
+			}],
+			// Home, Profile, Settings, Info
+        });
+		this.dockedItems = [this.topToolbar, this.bottomToolbar];
 		App.views.IndexView.superclass.initComponent.call(this);
 	},
 	items: [{
 		xtype: 'button',
-		name: 'newexpense',
-		text: 'Add New Expense',
+		name: 'takepicture',
+		text: 'Take Picture',
+		width: 400,
+		handler: menuHandler,
 	}, {
 		xtype: 'button',
 		name: 'expense',
-		text: 'View Existing Entries',
+		text: 'Record Expense',
+		width: 400,
+		handler: menuHandler,
 	}, {
 		xtype: 'button',
-		name: 'category',
-		text: 'Modify Categories',
+		name: 'viewreport',
+		text: 'View current report',
+		width: 400,
+		handler: menuHandler,
 	}, {
 		xtype: 'button',
-		name: 'about',
-		text: 'About Expense Tracker',
+		name: 'listreport',
+		text: 'Existing Reports',
+		width: 400,
+		handler: menuHandler,
 	}]
 });

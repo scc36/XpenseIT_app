@@ -47,7 +47,7 @@
 	backButtonTap: function () {
 		Ext.dispatch({
 			controller: App.controllers.expenseController,
-			action: 'canceledit'
+			action: 'gohome'
 		});
 	},
 	

@@ -8,6 +8,9 @@
 		);
 	},
 	'newexpense': function (options) {
+		if (!App.views.expenseView) {
+			App.views.expenseView = new App.views.ExpenseView();
+		}
 		var now = new Date();
 		var expenseId = now.getTime();
 		var expense = Ext.ModelMgr.create({ id: expenseId, date: now, amount: '', description: '' },
@@ -60,11 +63,15 @@
 			{ type: 'slide', direction: 'right' }
 		);
 	},
-	'canceledit': function (options) {
+	'gohome': function (options) {
 		App.views.expenseView.setActiveItem(
 			App.views.expenseListView,
 			{ type: 'slide', direction: 'right' }
 		);
+		Ext.dispatch({
+			controller: App.controllers.menuController,
+			action: 'index'
+		});
 	}
 });
 App.controllers.expenseController = Ext.ControllerManager.get('ExpenseController');
