@@ -23,11 +23,17 @@ var menuHandler = function (btn, evt) {
 		alert("View List of Reports");
 		break;
 	// Bottom toolbar buttons
-	case 'preferences':
-		alert("View Preferences");
+	case 'home':
+		alert("Going home");
 		break;
-	case '':
-		alert("View List of Reports");
+	case 'profile':
+		alert("Modify profile settings");
+		break;
+	case 'settings':
+		alert("Change settings");
+		break;
+	case 'info':
+		alert("About XpenseIT");
 		break;
 	}
 }
@@ -35,6 +41,38 @@ var menuHandler = function (btn, evt) {
 App.views.IndexView = Ext.extend(Ext.Panel, {
 	layout: 'vbox',
 	initComponent: function () {
+		this.homeButton = new Ext.Button({
+			iconCls: 'home',
+			title: 'home',
+			iconMask: true,
+			handler: this.menuHandler,
+			scope: this
+		});
+		
+		this.profileButton = new Ext.Button({
+			iconCls: 'user',
+			name: 'profile',
+			iconMask: true,
+			handler: this.menuHandler,
+			scope: this
+		});
+		
+		this.settingsButton = new Ext.Button({
+			iconCls: 'settings',
+			name: 'settings',
+			iconMask: true,
+			handler: this.menuHandler,
+			scope: this
+		});
+		
+		this.infoButton = new Ext.Button({
+			iconCls: 'info',
+			name: 'info',
+			iconMask: true,
+			handler: this.menuHandler,
+			scope: this
+		});
+		
 		this.topToolbar = new Ext.Toolbar({
             title: 'XpenseIT',
 			dock: 'top',
@@ -44,19 +82,12 @@ App.views.IndexView = Ext.extend(Ext.Panel, {
 			layout: {
 				pack: 'center',
 			},
-			items: [{
-				xtype: 'button',
-				name: 'preferences',
-				iconCls: 'bookmarks',
-				title: 'Preferences',
-				handler: menuHandler,
-			}, {
-				xtype: 'button',
-				iconCls: 'download',
-				title: 'Download',
-				handler: menuHandler,
-			}],
-			// Home, Profile, Settings, Info
+			items: [
+				this.homeButton,
+				this.profileButton,
+				this.settingsButton,
+				this.infoButton,
+			],
         });
 		this.dockedItems = [this.topToolbar, this.bottomToolbar];
 		App.views.IndexView.superclass.initComponent.call(this);
