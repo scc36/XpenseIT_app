@@ -109,16 +109,8 @@
 			xtype: 'textareafield',
 			name: 'description',
 			label: 'Description',
-			placeHolder: 'Enter a description of your expense here'
-		}]
-	}, {
-		layout: 'vbox',
-		defaults: {xtype: 'button', flex: 1, style: 'margin: .5em;'},
-		items: [{
-			text: 'Reset form',
-			handler: function(){
-				Ext.getCmp('basicform').reset();
-			}
+			placeHolder: 'Enter a description of your expense here',
+			useClearIcon: true
 		}]
 	}]
 });

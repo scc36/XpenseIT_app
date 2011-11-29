@@ -2,6 +2,10 @@ var menuHandler = function (btn, evt) {
 	switch (btn.name) {
 	case 'takepicture':
 		alert("Take a picture");
+		Ext.dispatch({
+			controller: App.controllers.expenseController,
+			action: 'newexpense'
+		});
 		break;
 	case 'expense':
 		Ext.dispatch({
@@ -12,16 +16,18 @@ var menuHandler = function (btn, evt) {
 	case 'viewreport':
 		Ext.dispatch({
 			controller: App.controllers.expenseController,
-			action: 'index'
+			action: 'listexpense'
 		});
 		break;
 	case 'listreport':
-		alert("Take a picture");
+		alert("View List of Reports");
 		break;
 	// Bottom toolbar buttons
-	case '':
+	case 'preferences':
+		alert("View Preferences");
 		break;
 	case '':
+		alert("View List of Reports");
 		break;
 	}
 }
@@ -40,6 +46,7 @@ App.views.IndexView = Ext.extend(Ext.Panel, {
 			},
 			items: [{
 				xtype: 'button',
+				name: 'preferences',
 				iconCls: 'bookmarks',
 				title: 'Preferences',
 				handler: menuHandler,

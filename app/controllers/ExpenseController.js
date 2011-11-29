@@ -1,10 +1,25 @@
 ﻿Ext.regController('ExpenseController', {
-	'index': function (options) {
+	'index': function(options){
 		if (!App.views.expenseView) {
 			App.views.expenseView = new App.views.ExpenseView();
 		}
 		App.views.expenseView.setActiveItem(
-			App.views.expenseListView
+			App.views.indexView
+		);
+	},
+	'about': function() {
+		App.views.expenseView.setActiveItem(
+			App.views.aboutView,
+			{ type: 'slide', direction: 'left' }
+		);
+	},
+	'listexpense': function (options) {
+		if (!App.views.expenseView) {
+			App.views.expenseView = new App.views.ExpenseView();
+		}
+		App.views.expenseView.setActiveItem(
+			App.views.expenseListView,
+			{ type: 'slide', direction: 'left' }
 		);
 	},
 	'newexpense': function (options) {
@@ -65,13 +80,9 @@
 	},
 	'gohome': function (options) {
 		App.views.expenseView.setActiveItem(
-			App.views.expenseListView,
+			App.views.indexView,
 			{ type: 'slide', direction: 'right' }
 		);
-		Ext.dispatch({
-			controller: App.controllers.menuController,
-			action: 'index'
-		});
 	}
 });
 App.controllers.expenseController = Ext.ControllerManager.get('ExpenseController');

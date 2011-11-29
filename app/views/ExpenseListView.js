@@ -18,7 +18,8 @@
         this.topToolbar = new Ext.Toolbar({
             title: 'My Expenses',
             items: [
-                { xtype: 'spacer' },
+                this.backButton,
+				{ xtype: 'spacer' },
                 this.newButton
             ]
         });

@@ -11,7 +11,7 @@
 		//console.log('mainLaunch');
 		
 		Ext.dispatch({
-			controller: App.controllers.menuController,
+			controller: App.controllers.expenseController,
 			action: 'index'
 		});
 	}
