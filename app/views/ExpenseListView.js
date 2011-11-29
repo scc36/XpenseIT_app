@@ -9,12 +9,21 @@
 			handler: this.backButtonTap,
 		scope: this
 		});
+		
         this.newButton = new Ext.Button({
             text: 'New',
             ui: 'action',
             handler: this.onNewExpense,
             scope: this
         });
+		
+		this.sendButton = new Ext.Button({
+			ui: 'confirm-round',
+			text: 'Send Report',
+			handler: this.sendButtonTap,
+			scope: this
+		});
+		
         this.topToolbar = new Ext.Toolbar({
             title: 'My Expenses',
             items: [
@@ -23,7 +32,18 @@
                 this.newButton
             ]
         });
-        this.dockedItems = [this.topToolbar];
+		
+		this.bottomToolbar = new Ext.Toolbar({
+			dock: 'bottom',
+			layout: {
+				pack: 'center',
+			},
+			items: [
+				this.sendButton
+			]
+		});
+		
+        this.dockedItems = [this.topToolbar, this.bottomToolbar];
         this.expenseList = new Ext.List({
             store: this.expenseStore,
             grouped: true,
@@ -57,6 +77,9 @@
             expense: record
         });
     },
+	sendButtonTap: function () {
+		alert ("Expense report send to XpenseIT");
+	},
     refreshList: function () {
         this.expenseList.refresh();
     }

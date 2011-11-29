@@ -94,27 +94,29 @@ App.views.IndexView = Ext.extend(Ext.Panel, {
 	},
 	items: [{
 		xtype: 'button',
+		ui: 'action',
 		name: 'takepicture',
 		text: 'Take Picture',
-		width: 400,
+		width: 300,
 		handler: menuHandler,
 	}, {
 		xtype: 'button',
+		ui: 'confirm',
 		name: 'expense',
 		text: 'Record Expense',
-		width: 400,
+		width: 300,
 		handler: menuHandler,
 	}, {
 		xtype: 'button',
 		name: 'viewreport',
 		text: 'View current report',
-		width: 400,
+		width: 300,
 		handler: menuHandler,
 	}, {
 		xtype: 'button',
 		name: 'listreport',
 		text: 'Existing Reports',
-		width: 400,
+		width: 300,
 		handler: menuHandler,
 	}]
 });
