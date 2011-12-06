@@ -1,4 +1,4 @@
-var menuHandler = function (btn, evt) {
+var newexpense = function (btn, evt) {
 	switch (btn.name) {
 	case 'takepicture':
 		alert("Take a picture");
@@ -13,39 +13,27 @@ var menuHandler = function (btn, evt) {
 			action: 'newexpense'
 		});
 		break;
-	case 'viewreport':
+	}
+}
+var myreport = function (btn, evt) {
 		Ext.dispatch({
 			controller: App.controllers.expenseController,
 			action: 'listexpense'
 		});
-		break;
-	case 'listreport':
+}
+var allreports = function (btn, evt) {
 		alert("View List of Reports");
-		break;
-	// Bottom toolbar buttons
-	case 'home':
-		alert("Going home");
-		break;
-	case 'profile':
-		alert("Modify profile settings");
-		break;
-	case 'settings':
-		alert("Change settings");
-		break;
-	case 'info':
-		alert("About XpenseIT");
-		break;
-	}
 }
 
 App.views.IndexView = Ext.extend(Ext.Panel, {
 	layout: 'vbox',
 	initComponent: function () {
+	
 		this.homeButton = new Ext.Button({
 			iconCls: 'home',
 			title: 'home',
 			iconMask: true,
-			handler: this.menuHandler,
+			handler: this.gohome,
 			scope: this
 		});
 		
@@ -53,7 +41,7 @@ App.views.IndexView = Ext.extend(Ext.Panel, {
 			iconCls: 'user',
 			name: 'profile',
 			iconMask: true,
-			handler: this.menuHandler,
+			handler: this.gotoprofile,
 			scope: this
 		});
 		
@@ -61,7 +49,7 @@ App.views.IndexView = Ext.extend(Ext.Panel, {
 			iconCls: 'settings',
 			name: 'settings',
 			iconMask: true,
-			handler: this.menuHandler,
+			handler: this.gotosettings,
 			scope: this
 		});
 		
@@ -69,7 +57,7 @@ App.views.IndexView = Ext.extend(Ext.Panel, {
 			iconCls: 'info',
 			name: 'info',
 			iconMask: true,
-			handler: this.menuHandler,
+			handler: this.xpenseitinfo,
 			scope: this
 		});
 		
@@ -83,7 +71,6 @@ App.views.IndexView = Ext.extend(Ext.Panel, {
 				pack: 'center',
 			},
 			items: [
-				this.homeButton,
 				this.profileButton,
 				this.settingsButton,
 				this.infoButton,
@@ -92,31 +79,49 @@ App.views.IndexView = Ext.extend(Ext.Panel, {
 		this.dockedItems = [this.topToolbar, this.bottomToolbar];
 		App.views.IndexView.superclass.initComponent.call(this);
 	},
+	
+	xpenseitinfo: function () {
+		alert("XpenseIT copyright 2011\n Anirudh Rathi \n Joe Vassilatos \n Kiran Salgarkar \n Shawn Chen");
+	},
+	
+	gotoprofile: function () {
+		Ext.dispatch({
+			controller: App.controllers.expenseController,
+			action: 'gotoprofile'
+		});
+	},
+	gotosettings: function () {
+		Ext.dispatch({
+			controller: App.controllers.expenseController,
+			action: 'gotosettings'
+		});
+	},
+	
 	items: [{
 		xtype: 'button',
 		ui: 'action',
 		name: 'takepicture',
 		text: 'Take Picture',
 		width: 300,
-		handler: menuHandler,
+		handler: newexpense,
 	}, {
 		xtype: 'button',
 		ui: 'confirm',
 		name: 'expense',
 		text: 'Record Expense',
 		width: 300,
-		handler: menuHandler,
+		handler: newexpense,
 	}, {
 		xtype: 'button',
 		name: 'viewreport',
 		text: 'View current report',
 		width: 300,
-		handler: menuHandler,
+		handler: myreport,
 	}, {
 		xtype: 'button',
 		name: 'listreport',
 		text: 'Existing Reports',
 		width: 300,
-		handler: menuHandler,
-	}]
+		handler: allreports,
+	}],
 });

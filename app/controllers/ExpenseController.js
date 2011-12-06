@@ -13,6 +13,18 @@
 			{ type: 'slide', direction: 'left' }
 		);
 	},
+	'gotoprofile': function() {
+		App.views.expenseView.setActiveItem(
+			App.views.profileView,
+			{ type: 'slide', direction: 'left' }
+		);
+	},
+	'gotosettings': function() {
+		App.views.expenseView.setActiveItem(
+			App.views.settingsView,
+			{ type: 'slide', direction: 'left' }
+		);
+	},
 	'listexpense': function (options) {
 		if (!App.views.expenseView) {
 			App.views.expenseView = new App.views.ExpenseView();

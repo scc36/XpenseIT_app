@@ -4,10 +4,11 @@
     layout: 'fit',
     initComponent: function () {
 		this.backButton = new Ext.Button({
-			text: 'Home',
-			ui: 'back',
+			iconCls: 'home',
+			title: 'home',
+			iconMask: true,
 			handler: this.backButtonTap,
-		scope: this
+			scope: this
 		});
 		
         this.newButton = new Ext.Button({

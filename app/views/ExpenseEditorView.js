@@ -3,8 +3,9 @@
 		categoryStore: Ext.emptyFn,
 	
 		this.backButton = new Ext.Button({
-			text: 'Home',
-			ui: 'back',
+			iconCls: 'home',
+			title: 'home',
+			iconMask: true,
 			handler: this.backButtonTap,
 			scope: this
 		});
