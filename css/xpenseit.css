@@ -29,4 +29,23 @@ body
 {
     color:#ffffff;
 }
-
+.btnPicture {
+	background-image: url('../images/icon_camera.png');
+	width: 40px;
+	height: 40px;
+}
+.btnExpense {
+	background-image: url('../images/icon_write.png');
+	width: 40px;
+	height: 40px;
+}
+.btnReport {
+	background-image: url('../images/icon_report.png');
+	width: 40px;
+	height: 40px;
+}
+.btnAllReports {
+	background-image: url('../images/icon_allr.png');
+	width: 40px;
+	height: 40px;
+}

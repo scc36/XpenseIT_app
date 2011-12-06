@@ -99,6 +99,7 @@ App.views.IndexView = Ext.extend(Ext.Panel, {
 	
 	items: [{
 		xtype: 'button',
+		iconCls: 'btnPicture',
 		ui: 'action',
 		name: 'takepicture',
 		text: 'Take Picture',
@@ -106,6 +107,7 @@ App.views.IndexView = Ext.extend(Ext.Panel, {
 		handler: newexpense,
 	}, {
 		xtype: 'button',
+		iconCls: 'btnExpense',
 		ui: 'confirm',
 		name: 'expense',
 		text: 'Record Expense',
@@ -113,12 +115,14 @@ App.views.IndexView = Ext.extend(Ext.Panel, {
 		handler: newexpense,
 	}, {
 		xtype: 'button',
+		iconCls: 'btnReport',
 		name: 'viewreport',
 		text: 'View current report',
 		width: 300,
 		handler: myreport,
 	}, {
 		xtype: 'button',
+		iconCls: 'btnAllReports',
 		name: 'listreport',
 		text: 'Existing Reports',
 		width: 300,
