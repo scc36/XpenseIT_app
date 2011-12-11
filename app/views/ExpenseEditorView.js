@@ -81,11 +81,6 @@
 			required: true,
 			useClearIcon: true
 		}, {
-			xtype: 'datepickerfield',
-			name: 'date',
-			label: 'Date',
-			picker: { yearFrom: 1900 }
-		}, {
 			xtype: 'selectfield',
 			name: 'category',
 			label: 'Category',
@@ -112,6 +107,11 @@
 			label: 'Description',
 			placeHolder: 'Enter a description of your expense here',
 			useClearIcon: true
+		}, {
+			xtype: 'datepickerfield',
+			name: 'date',
+			label: 'Date',
+			picker: { yearFrom: 1900 }
 		}]
 	}]
 });

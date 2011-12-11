@@ -65,6 +65,12 @@
 			label: 'Delete Expense Older Than (days)',
 			value: '60',
 			useClearIcon: true
+		}, {
+			xtype: 'textfield',
+			name: 'syncfrequency',
+			label: 'Sync Frequency (days)',
+			value: '1',
+			useClearIcon: true
 		}]
 	}]
 });

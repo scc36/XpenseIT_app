@@ -56,21 +56,38 @@
 			xtype: 'textfield',
 			name: 'name',
 			label: 'Name',
-			value: 'John Smith',
+			value: 'Joe Vassilatos',
 			required: true,
+			useClearIcon: true
+		}, {
+			xtype: 'textfield',
+			name: 'business',
+			label: 'Business',
+			value: 'Rutgers University',
 			useClearIcon: true
 		}, {
 			xtype: 'textfield',
 			name: 'address',
 			label: 'Address',
-			value: '123 Fake Street',
+			value: '1 Scarlet Knight Way',
 			useClearIcon: true
 		}, {
 			xtype: 'textfield',
 			name: 'phone',
 			label: 'Phone Number',
-			value: '555-555-5555',
+			value: '732-445-6105',
 			useClearIcon: true
+		}, {
+			xtype: 'selectfield',
+			name: 'report',
+			label: 'Report Categorization',
+			options: [{
+				text: 'By Trip',
+				value: 'trip'
+			}, {
+				text: 'By Date',
+				value: 'date'
+			}]
 		}, {
 			xtype: 'selectfield',
 			name: 'type',

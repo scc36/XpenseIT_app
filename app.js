@@ -1,4 +1,4 @@
-﻿var App = new Ext.Application({
+﻿Ext.regApplication({
 	name: 'App',
 	useLoadMask: true,
 	launch: function() {

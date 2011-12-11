@@ -25,6 +25,9 @@ var allreports = function (btn, evt) {
 		alert("View List of Reports");
 }
 
+var alertDismissed = function () {
+}
+
 App.views.IndexView = Ext.extend(Ext.Panel, {
 	layout: 'vbox',
 	initComponent: function () {
@@ -81,7 +84,12 @@ App.views.IndexView = Ext.extend(Ext.Panel, {
 	},
 	
 	xpenseitinfo: function () {
-		alert("XpenseIT copyright 2011\n Anirudh Rathi \n Joe Vassilatos \n Kiran Salgarkar \n Shawn Chen");
+		navigator.notification.alert(
+			'XpenseIT copyright 2011\n Anirudh Rathi \n Joe Vassilatos \n Kiran Salgarkar \n Shawn Chen',  // message
+			alertDismissed,         // callback
+			'XpenseIT version 0.1', // title
+			'Done'                  // buttonName
+		);
 	},
 	
 	gotoprofile: function () {
@@ -97,15 +105,16 @@ App.views.IndexView = Ext.extend(Ext.Panel, {
 		});
 	},
 	
+	//scroll: 'vertical',
 	items: [{
 		xtype: 'button',
 		iconCls: 'btnPicture',
 		ui: 'action',
 		name: 'takepicture',
-		text: 'Take Picture',
+		text: 'Capture Receipt',
 		width: 300,
 		handler: newexpense,
-	}, {
+	}, {xtype: 'spacer', height: 10, width: 100}, {
 		xtype: 'button',
 		iconCls: 'btnExpense',
 		ui: 'confirm',
@@ -113,18 +122,18 @@ App.views.IndexView = Ext.extend(Ext.Panel, {
 		text: 'Record Expense',
 		width: 300,
 		handler: newexpense,
-	}, {
+	}, {xtype: 'spacer', height: 10, width: 100}, {
 		xtype: 'button',
 		iconCls: 'btnReport',
 		name: 'viewreport',
-		text: 'View current report',
+		text: 'View expenses',
 		width: 300,
 		handler: myreport,
-	}, {
+	}, {xtype: 'spacer', height: 10, width: 100}, {
 		xtype: 'button',
 		iconCls: 'btnAllReports',
 		name: 'listreport',
-		text: 'Existing Reports',
+		text: 'My Reports',
 		width: 300,
 		handler: allreports,
 	}],
