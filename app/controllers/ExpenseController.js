@@ -40,7 +40,7 @@
 		}
 		var now = new Date();
 		var expenseId = now.getTime();
-		var expense = Ext.ModelMgr.create({ id: expenseId, date: now, amount: '', description: '' },
+		var expense = Ext.ModelMgr.create({ id: expenseId, date: now, amount: '', description: ''},
 			'ExpenseModel'
 		);
 		
@@ -62,16 +62,16 @@
 		App.views.expenseEditorView.updateRecord(currentExpense);
 		var errors = currentExpense.validate();
 		if (!errors.isValid()) {
-			Ext.Msg.alert('Wait!', errors.getByField('title')[0].message, Ext.emptyFn);
+			Ext.Msg.alert('Wait!', errors.getByField('amount')[0].message, Ext.emptyFn);
 			return;
 		}
-		if (null == App.stores.expenseStore.findRecord('id', currentExpense.data.id)) {
-			App.stores.expenseStore.add(currentExpense);
+		if (null == App.stores.localExpenses.findRecord('id', currentExpense.data.id)) {
+			App.stores.localExpenses.add(currentExpense);
 		} else {
-			 currentExpense.setDirty();
+			currentExpense.setDirty();
 		}
-		App.stores.expenseStore.sync();
-		App.stores.expenseStore.sort([{ property: 'date', direction: 'DESC'}]);
+		App.stores.localExpenses.sync();
+		App.stores.localExpenses.sort([{ property: 'date', direction: 'DESC'}]);
 		App.views.expenseListView.refreshList();
 		App.views.expenseView.setActiveItem(
 			App.views.expenseListView,
@@ -80,10 +80,10 @@
 	},
 	'deleteexpense': function (options) {
 		var currentExpense = App.views.expenseEditorView.getRecord();
-		if (App.stores.expenseStore.findRecord('id', currentExpense.data.id)) {
-			App.stores.expenseStore.remove(currentExpense);
+		if (App.stores.localExpenses.findRecord('id', currentExpense.data.id)) {
+			App.stores.localExpenses.remove(currentExpense);
 		}
-		App.stores.expenseStore.sync();
+		App.stores.localExpenses.sync();
 		App.views.expenseListView.refreshList();
 		App.views.expenseView.setActiveItem(
 			App.views.expenseListView,

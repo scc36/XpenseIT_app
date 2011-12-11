@@ -8,7 +8,7 @@
 			aboutView: new App.views.AboutView(),
 			profileView: new App.views.ProfileView(),
 			settingsView: new App.views.SettingsView(),
-			expenseListView: new App.views.ExpenseListView({ expenseStore: App.stores.expenseStore }),
+			expenseListView: new App.views.ExpenseListView({ localExpenses: App.stores.localExpenses }),
 			expenseEditorView: new App.views.ExpenseEditorView(),
 			tripListView: new App.views.TripListView({ tripStore: App.stores.tripStore }),
             tripEditorView: new App.views.TripEditorView()
@@ -25,7 +25,7 @@
 		]
 		App.views.ExpenseView.superclass.initComponent.call(this);
 		this.on('render', function () {
-			App.stores.expenseStore.load();
+			App.stores.localExpenses.load();
 			App.stores.tripStore.load();
 			//App.stores.profileStore.load();
 		});

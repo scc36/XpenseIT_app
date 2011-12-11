@@ -1,5 +1,5 @@
 ﻿App.views.ExpenseListView = Ext.extend(Ext.Panel, {
-    expenseStore: Ext.emptyFn,
+    localExpenses: Ext.emptyFn,
     expenseList: Ext.emptyFn,
     layout: 'fit',
     initComponent: function () {
@@ -21,7 +21,9 @@
 		this.sendButton = new Ext.Button({
 			ui: 'confirm-round',
 			text: 'Send Report',
-			handler: this.sendButtonTap,
+			handler: function() {
+				App.models.synchronizeLocalToRemote();
+			},
 			scope: this
 		});
 		
@@ -46,7 +48,7 @@
 		
         this.dockedItems = [this.topToolbar, this.bottomToolbar];
         this.expenseList = new Ext.List({
-            store: this.expenseStore,
+            store: this.localExpenses,
             grouped: true,
             emptyText: '<div style="margin:5px;">No expense cached.</div>',
             onItemDisclosure: true,

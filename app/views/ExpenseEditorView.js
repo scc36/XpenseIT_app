@@ -86,16 +86,16 @@
 			label: 'Category',
 			options: [{
 				text: 'Food',
-				value: 'food'
+				value: 'Food'
 			}, {
 				text: 'Travel',
-				value: 'travel'
+				value: 'Travel'
 			}, {
 				text: 'Lodging',
-				value: 'lodging'
+				value: 'Lodging'
 			}, {
 				text: 'Other',
-				value: 'other'
+				value: 'Other'
 			}]
 		}, {
 			xtype: 'hiddenfield',
@@ -106,6 +106,14 @@
 			name: 'description',
 			label: 'Description',
 			placeHolder: 'Enter a description of your expense here',
+			useClearIcon: true
+		}, {
+			xtype: 'textfield',
+			name: 'mileage',
+			label: 'Mileage',
+			placeHolder: '0',
+			value: 0,
+			required: true,
 			useClearIcon: true
 		}, {
 			xtype: 'datepickerfield',

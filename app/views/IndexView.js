@@ -84,12 +84,8 @@ App.views.IndexView = Ext.extend(Ext.Panel, {
 	},
 	
 	xpenseitinfo: function () {
-		navigator.notification.alert(
-			'XpenseIT copyright 2011\n Anirudh Rathi \n Joe Vassilatos \n Kiran Salgarkar \n Shawn Chen',  // message
-			alertDismissed,         // callback
-			'XpenseIT version 0.1', // title
-			'Done'                  // buttonName
-		);
+		info = 'Anirudh Rathi, Joe Vassilatos, Kiran Salgarkar, Shawn Chen';
+		Ext.Msg.alert('XpenseIT v0.1 copyright 2011', info, Ext.emptyFn);
 	},
 	
 	gotoprofile: function () {
