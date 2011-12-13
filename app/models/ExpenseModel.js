@@ -22,7 +22,7 @@
 	proxy: {
 		type: 'scripttag',
 		id: 'expenses.json',
-		url: 'http://localhost:3000/expenses.json',
+		url: 'http://xpenseit-webdemo.herokuapp.com/expenses.json',
 		reader: new Ext.data.JsonReader({
 		}),
 		writer: {
@@ -43,7 +43,7 @@ App.stores.localExpenses = new Ext.data.Store({
     model: 'ExpenseModel',
     sorters: [{
         property: 'date',
-        direction: 'DESC'
+        direction: 'ASC'
     }],
     proxy: {
         type: 'localstorage',
@@ -64,7 +64,7 @@ App.stores.remoteExpenses = new Ext.data.Store({
 	proxy: {
 		type: 'scripttag',
 		id: 'expenses.json',
-		url: 'http://localhost:3000/expenses.json',
+		url: 'http://xpenseit-webdemo.herokuapp.com/expenses.json',
 		reader: new Ext.data.JsonReader({
 		}),
 		writer: {
